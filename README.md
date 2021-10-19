@@ -8,6 +8,8 @@ config files:
 1. application.properties (Spring config)
 2. lo4j2-weather.yml (logging config)
 
+Important note: don't be afraid to edit the said two config files. On the contrary, that's part of the question. 
+
 endpoints:
 1. a single "/" endpoint calling a weather API
 
