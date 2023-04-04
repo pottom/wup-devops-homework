@@ -1,7 +1,4 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM openjdk:17-jre-slim
 WORKDIR /app
-COPY . /app
-RUN mvn package -DskipTests
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+COPY target/demo-0.0.1-SNAPSHOT.jar /app/app.jar
 CMD ["java", "-jar", "app.jar"]
