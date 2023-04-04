@@ -11,19 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - name: Print Docker Hub username
-      run: echo ${{ secrets.DOCKERHUB_USERNAME }}
-      
-    - name: Print Docker Hub password
-      run: echo ${{ secrets.DOCKERHUB_PASSWORD }}
-
-    
     - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Run tests
       run: |
-        mvn clean test package
+        mvn clean test
+        
+    - name: Run build
+      run: |
+        mvn clean package
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
