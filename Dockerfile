@@ -1,4 +1,7 @@
-FROM openjdk:11-jre-slim
+FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /app
-COPY target/demo-0.0.1-SNAPSHOT.jar /app
-CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
+COPY . /app
+RUN ./mvnw package -DskipTests
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+CMD ["java", "-jar", "app.jar"]
