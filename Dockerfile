@@ -1,4 +1,4 @@
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY target/wup-devops-homework.jar /app
-CMD ["java", "-jar", "wup-devops-homework.jar"]
+COPY target/demo-0.0.1-SNAPSHOT.jar /app
+CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
