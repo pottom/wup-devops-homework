@@ -15,10 +15,7 @@ jobs:
 
     - name: Run tests
       run: |
-        mvn clean test
-        
-    - name: List contents of target directory
-      run: ls target/
+        mvn clean test package
 
     - name: Build Docker image
       uses: docker/build-push-action@v2
