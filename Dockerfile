@@ -17,6 +17,7 @@ WORKDIR /app
 COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar /app/app.jar
 COPY ./application.properties /app/
 COPY ./log4j2-weather.yml /app/
+COPY ./checkstyle.xml /app/
 COPY ./check_env.sh /app/
 COPY ./run.sh /app/
 
