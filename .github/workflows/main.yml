@@ -30,9 +30,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Set image tag
+        run: echo "::set-env name=IMAGE_TAG::$(date +'%Y%m%d%H%M%S')"
+
       - name: Create container image and push to dockerhub
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: baistvan/wup-devops-homework:latest
+          tags: |
+            baistvan/wup-devops-homework:${{ env.IMAGE_TAG }}
+            baistvan/wup-devops-homework:latest
