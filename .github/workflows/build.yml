@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  build:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
     
@@ -16,11 +16,14 @@ jobs:
 
     - name: Run tests and build
       run: |
-        mvn clean test package 
+        mvn clean test 
   
   push-to-repo:
     runs-on: ubuntu-latest
     steps:
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
     
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
