@@ -10,6 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    
+    - name: Print Docker Hub username
+      run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+      
+    - name: Print Docker Hub password
+      run: echo ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    
     - name: Checkout code
       uses: actions/checkout@v2
 
