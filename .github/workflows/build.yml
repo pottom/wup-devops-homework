@@ -17,7 +17,11 @@ jobs:
     - name: Run tests and build
       run: |
         mvn clean test package 
-        
+  
+  push-to-repo:
+    runs-on: ubuntu-latest
+    steps:
+    
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
       
