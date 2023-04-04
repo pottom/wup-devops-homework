@@ -10,5 +10,7 @@ RUN mvn package -DskipTests
 FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY ./application.properties /app/
+COPY ./log4j2-weather.yml /app/
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
