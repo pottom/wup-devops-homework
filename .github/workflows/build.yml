@@ -30,3 +30,6 @@ jobs:
         context: .
         push: true
         tags: baistvan/wup-devops-homework:latest
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
