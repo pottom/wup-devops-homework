@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_TAG: ${{ formatTime(now(), '%Y%m%d%H%M%S') }}
+      IMAGE_TAG: ${{ env.GITHUB_SHA:0:7 }}-$(date +'%Y%m%d%H%M%S')
 
     steps:
       - name: Checkout the code
